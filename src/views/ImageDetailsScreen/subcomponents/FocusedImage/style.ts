@@ -14,7 +14,7 @@ export const TitleContainer = styled.div`
   display: flex;
   h1 {
     font-size: 1.75rem;
-    margin: ${({ theme }): string => theme.margin[0]} 0;
+    margin: ${({ theme }): string => theme.margin[0]}px 0;
   }
   button {
     padding: ${({ theme }): string => theme.margin[0]}px;
