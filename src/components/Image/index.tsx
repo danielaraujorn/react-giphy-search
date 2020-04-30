@@ -1,6 +1,6 @@
 import React, { useMemo, useCallback } from 'react'
 import { Container, Text } from './style'
-import { Data } from '../../../../features/imagesList'
+import { Data } from '../../types'
 import { useHistory } from 'react-router-dom'
 
 export const Image = ({ data }: { data: Data }) => {
@@ -8,7 +8,7 @@ export const Image = ({ data }: { data: Data }) => {
     id,
     title,
     images: {
-      original: { url },
+      original: { url: originalUrl },
     },
   } = data
   const history = useHistory()
@@ -16,14 +16,13 @@ export const Image = ({ data }: { data: Data }) => {
     history.push('/' + id)
   }, [id, history])
 
-  const renderedImage = useMemo(
-    () => (
-      <Container title={title} original={url} onClick={redirect}>
+  const renderedImage = useMemo(() => {
+    return (
+      <Container title={title} src={originalUrl} onClick={redirect}>
         <Text>{title}</Text>
       </Container>
-    ),
-    [title, url, redirect]
-  )
+    )
+  }, [title, originalUrl, redirect])
 
   return renderedImage
 }

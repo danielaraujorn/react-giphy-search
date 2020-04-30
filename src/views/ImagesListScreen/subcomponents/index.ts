@@ -1,2 +1,2 @@
-export { Image } from './Image'
 export { ImagesList } from './ImagesList'
+export { Search } from './Search'

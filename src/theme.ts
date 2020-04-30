@@ -15,6 +15,7 @@ export type themeType = {
   icon: {
     color: string
   }
+  margin: number[]
 }
 
 export const theme: themeType = {
@@ -32,4 +33,5 @@ export const theme: themeType = {
   icon: {
     color: 'white',
   },
+  margin: [8, 16, 24],
 }

@@ -1,7 +1,8 @@
 import React, { useCallback } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { Container, Input, Text, HorizontalFlexForm, Button } from './style'
-import { searchImages, selectImagesList } from '../../features/imagesList'
+import { Container, Text, HorizontalFlexForm } from './style'
+import { searchImages, selectImagesList } from '../../../../features/imagesList'
+import { Button, Input } from '../../../../components'
 
 export const Search = () => {
   const { text } = useSelector(selectImagesList)

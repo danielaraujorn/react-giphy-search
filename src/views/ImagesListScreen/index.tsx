@@ -1,9 +1,9 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import InfiniteScroll from 'react-infinite-scroller'
+import { Search, ImagesList } from './subcomponents'
 import { selectImagesList, loadMore } from '../../features/imagesList'
-import { Search, Container } from '../../components'
-import { ImagesList } from './subcomponents'
+import { Container } from '../../components'
 
 const ImagesListScreen = () => {
   const { data } = useSelector(selectImagesList)
@@ -16,11 +16,6 @@ const ImagesListScreen = () => {
         pageStart={0}
         loadMore={() => dispatch(loadMore())}
         hasMore={true || false}
-        // loader={
-        //   <div className='loader' key={0}>
-        //     Loading ...
-        //   </div>
-        // }
       >
         <ImagesList data={data} />
       </InfiniteScroll>

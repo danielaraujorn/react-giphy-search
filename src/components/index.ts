@@ -1,3 +1,5 @@
 export { Header } from './Header'
-export { Search } from './Search'
 export { Container } from './Container'
+export { Button } from './Button'
+export { Input } from './Input'
+export { Image } from './Image'

@@ -1,3 +1,3 @@
 # React Giphy Search
 
-<!-- 3h + 2h  -->
+<!-- 6h + 40min  -->

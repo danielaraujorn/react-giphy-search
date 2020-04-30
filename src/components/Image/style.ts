@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Container = styled.div<{ original: string }>`
+export const Container = styled.div<{ src: string }>`
   &:before {
     content: '';
     float: left;
@@ -10,9 +10,9 @@ export const Container = styled.div<{ original: string }>`
   min-width: 220px;
   flex: 1 0 auto;
   height: auto;
-  margin: 8px;
-  background: ${({ original, theme }) =>
-      `linear-gradient(0deg,${theme.image.background},transparent),url(${original})`}
+  margin: 0;
+  background: ${({ src, theme }) =>
+      `linear-gradient(0deg,${theme.image.background},transparent),url(${src})`}
     gray;
   background-size: cover;
   background-position: center;
