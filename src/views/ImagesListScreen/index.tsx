@@ -1,24 +1,31 @@
-import React from 'react'
+import React, { useCallback, ReactElement } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import InfiniteScroll from 'react-infinite-scroller'
 import { Search, ImagesList } from './subcomponents'
 import { selectImagesList, loadMore } from '../../features/imagesList'
-import { Container } from '../../components'
+import { Container, Message } from '../../components'
+import { Status } from '../../types'
 
-const ImagesListScreen = () => {
-  const { data } = useSelector(selectImagesList)
+const ImagesListScreen = (): ReactElement => {
+  const { data, status } = useSelector(selectImagesList)
   const dispatch = useDispatch()
-
+  const loadMoreItems = useCallback(() => {
+    dispatch(loadMore())
+  }, [dispatch])
   return (
     <Container>
       <Search />
-      <InfiniteScroll
-        pageStart={0}
-        loadMore={() => dispatch(loadMore())}
-        hasMore={true || false}
-      >
-        <ImagesList data={data} />
-      </InfiniteScroll>
+      {status === Status.OK && data.length > 0 && (
+        <InfiniteScroll
+          pageStart={0}
+          loadMore={loadMoreItems}
+          hasMore={true || false}
+        >
+          <ImagesList data={data} />
+        </InfiniteScroll>
+      )}
+      {status === Status.ERROR && <Message>Error on loading</Message>}
+      {status === Status.EMPTY && <Message>Not found</Message>}
     </Container>
   )
 }

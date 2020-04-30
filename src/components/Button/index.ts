@@ -5,14 +5,14 @@ export const Button = styled.button`
   min-width: 80px;
   width: 30%;
   height: 50px;
-  background-color: ${({ theme }) => theme.primary.main};
+  background-color: ${({ theme }): string => theme.primary.main};
   border: none;
-  color: ${({ theme }) => theme.primary.contrastColor};
-  font-size: 16px;
+  color: ${({ theme }): string => theme.primary.contrastColor};
+  font-size: 1rem;
   font-weight: 600;
   outline: none;
   cursor: pointer;
   &:hover {
-    background-color: ${({ theme }) => theme.primary.dark};
+    background-color: ${({ theme }): string => theme.primary.dark};
   }
 `

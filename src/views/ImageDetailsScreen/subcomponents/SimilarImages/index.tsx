@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from 'react'
+import React, { useState, useMemo, useEffect, ReactElement } from 'react'
 import ItemsCarousel from 'react-items-carousel'
 import useMediaQuery from 'react-hook-media-query'
 import { GoChevronLeft, GoChevronRight } from 'react-icons/go'
@@ -12,7 +12,7 @@ export const SimilarImages = ({
 }: {
   data?: Data[]
   loadMore: () => void
-}) => {
+}): ReactElement => {
   const [index, setIndex] = useState(0)
   const small = useMediaQuery('(max-width: 487px)')
   const big = useMediaQuery('(min-width: 724px)')
@@ -40,9 +40,9 @@ export const SimilarImages = ({
           showSlither={false}
           firstAndLastGutter={false}
           activeItemIndex={index}
-          requestToChangeActive={(value: number) => setIndex(value)}
-          rightChevron={<GoChevronRight size='2em' />}
-          leftChevron={<GoChevronLeft size='2em' />}
+          requestToChangeActive={setIndex}
+          rightChevron={<GoChevronRight size="2em" />}
+          leftChevron={<GoChevronLeft size="2em" />}
         >
           {data.map((item) => (
             <Image key={item.id} data={item} />

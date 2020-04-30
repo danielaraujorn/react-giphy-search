@@ -5,16 +5,16 @@ export const Container = styled.header`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: ${({ theme }) =>
+  background-image: ${({ theme }): string =>
     `linear-gradient(0deg, ${theme.primary.dark}, ${theme.primary.main})`};
 `
 
 export const Title = styled.p`
-  font-size: 32px;
+  font-size: 2rem;
   color: white;
   font-weight: 200;
   & > b {
-    color: ${({ theme }) => theme.secondary.main};
+    color: ${({ theme }): string => theme.secondary.main};
     font-weight: 600;
   }
 `

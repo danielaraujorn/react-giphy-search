@@ -1,9 +1,9 @@
-import React, { useMemo, useCallback } from 'react'
+import React, { useMemo, useCallback, ReactElement } from 'react'
 import { Container, Text } from './style'
 import { Data } from '../../types'
 import { useHistory } from 'react-router-dom'
 
-export const Image = ({ data }: { data: Data }) => {
+export const Image = ({ data }: { data: Data }): ReactElement => {
   const {
     id,
     title,

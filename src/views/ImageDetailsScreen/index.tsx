@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from 'react'
+import React, { useEffect, useCallback, ReactElement } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { FocusedImage, SimilarImages } from './subcomponents'
@@ -8,8 +8,9 @@ import {
   loadMoreRelated,
 } from '../../features/selectedImage'
 import { Container } from '../../components'
+import { Status } from '../../types'
 
-const ImageDetailsScreen = () => {
+const ImageDetailsScreen = (): ReactElement => {
   const { imageId }: { imageId: string } = useParams()
 
   const dispatch = useDispatch()
@@ -18,7 +19,7 @@ const ImageDetailsScreen = () => {
     dispatch(searchImage(imageId))
   }, [imageId, dispatch])
 
-  const { data, relatedData } = useSelector(selectSelectedImage)
+  const { data, relatedData, status } = useSelector(selectSelectedImage)
 
   const loadMore = useCallback(() => {
     dispatch(loadMoreRelated())
@@ -26,8 +27,10 @@ const ImageDetailsScreen = () => {
 
   return (
     <Container>
-      <FocusedImage data={data} />
-      <SimilarImages data={relatedData?.data} loadMore={loadMore} />
+      <FocusedImage data={data} status={status} />
+      {status === Status.OK && (
+        <SimilarImages data={relatedData?.data} loadMore={loadMore} />
+      )}
     </Container>
   )
 }

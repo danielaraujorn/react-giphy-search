@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { Container, Title } from './style'
 
-export const Header = () => {
+export const Header = (): ReactElement => {
   return (
     <Container>
       <Title>

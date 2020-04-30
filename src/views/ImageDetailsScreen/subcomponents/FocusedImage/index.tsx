@@ -1,34 +1,40 @@
-import React, { useMemo, useCallback } from 'react'
+import React, { useMemo, useCallback, ReactElement } from 'react'
 import { useHistory } from 'react-router-dom'
 import { GoChevronLeft } from 'react-icons/go'
 import { Img, Container, TitleContainer } from './style'
-import { Data } from '../../../../types'
+import { Data, Status } from '../../../../types'
 
-export const FocusedImage = ({ data }: { data?: Data }) => {
+export const FocusedImage = ({
+  data,
+  status,
+}: {
+  data?: Data
+  status?: Status
+}): ReactElement => {
   const history = useHistory()
-  console.log(history)
   const goBack = useCallback(() => {
     if (history.length > 1) history.goBack()
     else history.replace('/')
   }, [history])
   const title = useMemo(() => {
-    const text = data
-      ? data.title
-        ? data.title
-        : 'Image not found'
-      : 'Loading...'
+    const getText = (): string | undefined => {
+      if (status === Status.ERROR) return 'Error'
+      if (data) return data.title
+      return 'Loading...'
+    }
+    const text = getText()
     return (
       <TitleContainer>
         <button onClick={goBack}>
-          <GoChevronLeft size='2em' />
+          <GoChevronLeft size="2em" />
         </button>
         <h1>{text}</h1>
       </TitleContainer>
     )
-  }, [data, goBack])
+  }, [data, goBack, status])
   const image = useMemo(
     () => !!data && <Img alt={data?.title} src={data?.images?.original.url} />,
-    [data]
+    [data],
   )
   return (
     <Container>

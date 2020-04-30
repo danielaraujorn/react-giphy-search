@@ -1,3 +1,9 @@
+export enum Status {
+  OK,
+  EMPTY,
+  ERROR,
+}
+
 export interface Data {
   type: string
   id: string
@@ -24,4 +30,11 @@ export interface ImagesListState {
   text?: string
   data: Data[]
   pagination: Pagination
+  status: Status
+}
+
+export interface SelectedImage {
+  data?: Data
+  relatedData?: ImagesListState
+  status?: Status
 }
