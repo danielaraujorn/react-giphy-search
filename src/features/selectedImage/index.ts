@@ -13,6 +13,8 @@ export const selectedImage = createSlice({
       const { data, relatedData, status } = action.payload
       if (!data) {
         state.status = Status.EMPTY
+        state.data = undefined
+        state.relatedData = undefined
       } else if (status === 200) {
         state.data = data
         state.relatedData = relatedData
