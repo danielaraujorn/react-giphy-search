@@ -1,6 +1,6 @@
 import React, { useCallback, ReactElement } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { Container, Text, HorizontalFlexForm } from './style'
+import { Container, HorizontalFlexForm } from './style'
 import { searchImages, selectImagesList } from '../../../../features/imagesList'
 import { Button, Input } from '../../../../components'
 
@@ -19,9 +19,14 @@ export const Search = (): ReactElement => {
 
   return (
     <Container>
-      <Text>Search your interests</Text>
       <HorizontalFlexForm onSubmit={onSubmit}>
-        <Input autoFocus name="text" defaultValue={text} />
+        <Input
+          required
+          placeholder="Search your interests"
+          autoFocus
+          name="text"
+          defaultValue={text}
+        />
         <Button type="submit">Search</Button>
       </HorizontalFlexForm>
     </Container>

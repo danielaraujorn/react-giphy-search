@@ -5,8 +5,7 @@ export const Container = styled.header`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: ${({ theme }): string =>
-    `linear-gradient(0deg, ${theme.primary.dark}, ${theme.primary.main})`};
+  background-color: ${({ theme }): string => theme.primary.dark};
 `
 
 export const Title = styled.p`

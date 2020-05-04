@@ -2,6 +2,16 @@
 
 ## [Online link](https://daniel-react-giphy-search.netlify.app/)
 
+## Results
+
+- Mobile
+
+![GitHub Logo](/screenshots/Mobile.png)
+
+- Desktop
+
+![GitHub Logo](/screenshots/Desktop.png)
+
 ## Made using
 
 - Prototyped interface

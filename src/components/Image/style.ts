@@ -11,9 +11,9 @@ export const Container = styled.div<{ src: string }>`
   flex: 1 0 auto;
   height: auto;
   margin: 0;
+  border-radius: ${({ theme }): number => theme.borderRadius}px;
   background: ${({ src, theme }): string =>
-      `linear-gradient(0deg,${theme.image.background},transparent),url(${src})`}
-    gray;
+    `linear-gradient(0deg,${theme.image.background},transparent),url(${src}) ${theme.image.background}33`};
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
