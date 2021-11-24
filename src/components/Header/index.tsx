@@ -5,7 +5,7 @@ export const Header = (): ReactElement => {
   return (
     <Container>
       <Title>
-        Pop<b>Gifs</b>!
+        Pop<b>Gifs</b> Teste 1!
       </Title>
     </Container>
   )
