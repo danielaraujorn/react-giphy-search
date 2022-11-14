@@ -16,7 +16,7 @@
     "react-items-carousel": "^2.8.0",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.1",
+    "react-scripts": "5.0.1",
     "styled-components": "^5.1.0",
     "typescript": "~3.8.2"
   },
